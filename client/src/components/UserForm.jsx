@@ -1,4 +1,4 @@
-export default function UserForm() {
+export default function UserForm({ onSave }) {
   const postData = async (event) => {
     event.preventDefault();
 
@@ -33,6 +33,8 @@ export default function UserForm() {
 
       const data = await response.json();
       console.log(`Success: ${data}`);
+
+      onSave();
     } catch (error) {
       console.error("Error:", error);
     }

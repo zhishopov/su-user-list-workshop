@@ -8,12 +8,16 @@ export default function AddUserButton() {
     setShowForm(!showForm);
   };
 
+  const hideUserForm = () => {
+    setShowForm(false);
+  };
+
   return (
     <>
       <button className="btn-add btn" onClick={showUserForm}>
         Add new user
       </button>
-      {showForm && <UserForm></UserForm>}
+      {showForm && <UserForm onSave={hideUserForm}></UserForm>}
     </>
   );
 }
