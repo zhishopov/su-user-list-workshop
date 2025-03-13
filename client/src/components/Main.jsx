@@ -1,7 +1,7 @@
 import AddUserButton from "./AddUserButton";
 import Pagination from "./Pagination";
 import SearchForm from "./SearchForm";
-import Table from "./Table";
+import Table from "./UserTable";
 
 export default function Main() {
   return (
@@ -12,7 +12,7 @@ export default function Main() {
           {/* Search bar component */}
           <SearchForm></SearchForm>
           {/* Table component */}
-          <Table></Table>
+          {/* <Table></Table> */}
           {/* New user button  */}
           <AddUserButton></AddUserButton>
           {/* Pagination component  */}

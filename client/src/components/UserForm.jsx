@@ -34,7 +34,7 @@ export default function UserForm({ onSave }) {
       const data = await response.json();
       console.log(`Success: ${data}`);
 
-      onSave();
+      onSave(data);
     } catch (error) {
       console.error("Error:", error);
     }
