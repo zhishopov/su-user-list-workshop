@@ -4,6 +4,7 @@ export default function Header() {
       <header class="header">
         <div class="logo">
           <span class="course">React Workshop - September 2023</span>
+          <p>Test</p>
         </div>
       </header>
     </>
