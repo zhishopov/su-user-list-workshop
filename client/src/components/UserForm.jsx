@@ -1,4 +1,43 @@
 export default function UserForm() {
+  const postData = async (event) => {
+    event.preventDefault();
+
+    const formData = {
+      firstName: event.target.firstName.value,
+      lastName: event.target.lastName.value,
+      email: event.target.email.value,
+      imageUrl: event.target.imageUrl.value,
+      phoneNumber: event.target.phoneNumber.value,
+      createdAt: new Date().toISOString(),
+      updatedAt: new Date().toISOString(),
+      address: {
+        country: event.target.country.value,
+        city: event.target.city.value,
+        street: event.target.street.value,
+        streetNumber: event.target.streetNumber.value,
+      },
+    };
+
+    try {
+      const response = await fetch("http://localhost:3030/jsonstore/users", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (response.ok == false) {
+        throw new Error("Failed to save user data");
+      }
+
+      const data = await response.json();
+      console.log(`Success: ${data}`);
+    } catch (error) {
+      console.error("Error:", error);
+    }
+  };
+
   return (
     <>
       <div className="overlay">
@@ -25,7 +64,7 @@ export default function UserForm() {
                 </svg>
               </button>
             </header>
-            <form>
+            <form onSubmit={postData}>
               <div className="form-row">
                 <div className="form-group">
                   <label htmlFor="firstName">First name</label>
