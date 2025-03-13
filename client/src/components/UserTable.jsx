@@ -102,11 +102,11 @@ export default function UserTable({ users }) {
           <tbody>
             {/* Render each user */}
             {users && users.length > 0 ? (
-              users.map((user, index) => (
-                <tr key={index}>
+              users.map((user) => (
+                <tr key={user._id || user.email}>
                   <td>
                     <img
-                      src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460__340.png"
+                      src={user.imageUrl}
                       alt="User's profile"
                       className="image"
                     />
